@@ -1,1 +1,1 @@
-A smart app that helps the average consumer to plan their food purchases on a daily basis 🥕.
+A smart app that helps the average consumer to plan their food purchases on a daily basis 🥕.g
