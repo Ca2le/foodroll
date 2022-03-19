@@ -1,85 +1,134 @@
 import React, {Component} from 'react'
 import './calender.style.css'
+
 class Calender extends Component {
     constructor(props) {
         super(props)
 
         this.state = {
-            month_arr : ['JAN', 'FEB', 'MAR', 'APR', 'MAJ', 'JUN', 'JUL', 'AUG', 'SEP', 'OKT', 'NOV', 'DEC'],
-            day_arr : ['mån', 'tis', 'ons', 'tor', 'fre', 'lör', 'sön'],
-            // Current month from today
-            currentDays : [],
-            currentMonth : '',
-            currentYear : '',
-            // Next month from today >
-            nextDays : '',
-            nextMonth : '',
-            nextYear : '',
-            // < Prev month from today
-            prevDays : '',
-            prevMonth : '',           
-            prevYear : ''
-       
-            
-        } 
+            month_arr: ['januari', 'februari', 'mars', 'april', 'maj', 'juni', 'juli', 'augusti', 'september', 'oktober', 'november', 'december'],
+            day_arr: ['må', 'ti', 'on', 'to', 'fr', 'lö', 'sö'],
+            allDays_arr: [],
+            selectedMonth: ''
+           
+        }
+         this.prevMonth = this.prevMonth.bind(this)
+         this.currentMonth = this.currentMonth.bind(this)
+         this.nextMonth = this.nextMonth.bind(this)
+         this.calculateCalenderDay = this.calculateCalenderDay.bind(this)
     }
 
     componentDidMount() {
 
         const date = new Date()
-      
+        const [month, year] = [date.getMonth(), date.getFullYear()]
+        
+        const firstDayOfCurrentMonth = new Date(year, month, 1).getDay()
 
-        const [month, day, year] = [date.getMonth(), date.getDate(), date.getFullYear()]
-
-        const daysInMonth = new Date(year, month+1, 0).getDate()
-
-        const firstDayInMonth = new Date(year, month, 1).getDay()-1
-
-        let currentDaysArr = []
-        console.log(this.state.day_arr[firstDayInMonth])
-
-        for(let i = 1; i < daysInMonth+1; i++ ){
-           currentDaysArr.push(i)
-        }
-      
-
-
-        this.setState( function(prevState, prevProps){
-            return (
-                {
-                    currentMonth: prevState = this.state.month_arr[month],
-                    currentYear: prevState = year,
-                    nextMonth: prevState = this.state.month_arr[month+1],
-                    prevMonth: prevState = this.state.month_arr[month-1],
-                    nextYear : prevState = year+1,
-                    prevYear : prevState = year-1,
-                    currentDays: prevState = currentDaysArr
-                }
-                
-            )
+        //Set state to current month
+        this.setState( function(prevState) {
+            return {selected: prevState.selectedMonth = this.state.month_arr[month]}
         })
+        
+        //Returns a array of day-objects with previus, current and next month ⏰
+        const prevMonth = this.prevMonth(month, year)
+        const currentMonth = this.currentMonth(month, year)
+        const nextMonth = this.nextMonth(month, year)
+
+        // Merge all three months to one array of objects and set it to state *allDays_arr*🙆‍♂️
+        this.calculateCalenderDay(prevMonth, currentMonth, nextMonth, firstDayOfCurrentMonth)
+       
     }
 
-    render(){
+    calculateCalenderDay(prevMonth, currMonth, nextMonth, firstDayOfMonth) {
+        const calenderArr = []
+        let firstDay = (firstDayOfMonth - 1)
+        if (firstDay === -1) return (firstDay = 6)
+
+        const prevMonth_arr = prevMonth.filter( (item, index) => index < (firstDayOfMonth - 1)  )
+        prevMonth.reverse()
+        prevMonth_arr.map( item => calenderArr.push(item))
+        currMonth.map( item => calenderArr.push(item))
+        nextMonth.map( item => calenderArr.push(item))
+
+        this.setState( function(prevState) {
+            return {allDays_arr: prevState.allDays_arr = calenderArr}
+        })
+    }
+    
+    prevMonth(currentMonth, currentYear){
+        let prevMonth = (currentMonth - 1)
+        let year = currentYear
+        const totalDaysOfPrevMonth = new Date(year, currentMonth, 0).getDate()
+        const prevDaysArr = []
+
+        if (prevMonth === -1){
+            return [prevMonth = 11, year-1]
+        }
         
+        for( let i = 1; i < totalDaysOfPrevMonth+1; i++) {
+            prevDaysArr.push(
+                {
+                    year: year,
+                    month: this.state.month_arr[prevMonth],
+                    date: i,
+                    selected: false,
+                }
+            )
+        }
+        return prevDaysArr.reverse()
+    }
+
+    currentMonth(currentMonth, currentYear){
+        const totalDaysOfCurrentMonth = new Date(currentYear, (currentMonth + 1), 0).getDate()
+        const currentDaysArr = []
+        for( let i = 1; i < totalDaysOfCurrentMonth+1; i++) {
+            currentDaysArr.push(
+                {
+                    year: currentYear,
+                    month: this.state.month_arr[currentMonth],
+                    date: i,
+                    selected: false,
+                }
+            )
+        }
+        return currentDaysArr
+    }
+
+    nextMonth(currentMonth, currentYear){
+        let nextMonth = (currentMonth + 1)
+        let year = currentYear
+        if ( nextMonth === 0) {
+            return (year + 1)
+        }
+        const totalDaysOfNextMonth = new Date(nextMonth, year, 0).getDate()
+        const nextDaysArr = []
+        for( let i = 1; i < totalDaysOfNextMonth+1; i++) {
+            nextDaysArr.push(
+                {
+                    year: year,
+                    month: this.state.month_arr[nextMonth],
+                    date: i,
+                    selected: false,
+                }
+            )
+        }
+        return nextDaysArr
+    }
+
+
+    render(){
 
         return(            
             <div className="container">
                 <div className="monthyear_container">
-                    <div className='prev_monthyear_container'>
-                    </div>
-                    <div className='prev_monthyear_container'>
-                    </div>
-                    <div className='prev_monthyear_container'> 
-                    </div>
-                    <h1>{this.state.currentMonth}</h1>
-                    <h1>{this.state.currentYear}</h1>
+                    <h1>{this.state.selectedMonth}</h1>
                 </div>
                 <div className="week_container">
-                    {this.state.day_arr.map( (weekdays, index) => <div key={index} className="week_days"><p key={index}>{weekdays}</p></div>)}
+                    
                 </div>
                 <div className="day_container">
-                    {this.state.currentDays.map( (day, index) => <div key={index} className="days"><p key={index}>{day}</p></div>)}
+                    {this.state.allDays_arr.map( element => <div className='days'><p>{element.date}</p></div>)}
                 </div>
             </div>
         )

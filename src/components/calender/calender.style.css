@@ -1,5 +1,6 @@
 .container{
-    background-color: aquamarine;
+    background-color: rgb(247, 247, 247);
+    height: 400px;
     width: 400px;
     display: block;
     height: auto;
@@ -14,23 +15,33 @@
     display: flex;
     width: 100%;
     flex-wrap: wrap;
-    padding: 0 15px;
+    
 }
 
 .week_days{
-    width: calc(370px / 7);
-    padding: 0 15px;
+   
 }
 
 .day_container{
     display: flex;
     flex-wrap: wrap;
-    width: 100%;
-    padding: 0 15px;
+    gap: 5px;
+    
+    
 }
 
 .days{
+    display: flex;
+    margin: auto;
+    align-items: center;
+    justify-content: center;
     width: calc(370px / 7);
-    padding: 0 15px;
-    text-align: center;
+    height: calc(370px / 7);
+    background-color: rgb(255, 255, 255);
+}
+
+.days.active{
+    color: rgb(255, 255, 255);
+    background-color: rgb(202, 43, 43);
+    font-weight: bold;
 }
