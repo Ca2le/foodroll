@@ -1,10 +1,12 @@
+
 .container{
+    
     background-color: rgb(247, 247, 247);
-    height: 400px;
-    width: 400px;
+    width: 315px;
     display: block;
-    height: auto;
     margin: 0 auto;
+    margin-top: 20vh;
+    
 }
 .monthyear_container{
     display: flex;
@@ -13,8 +15,10 @@
 
 .week_container{
     display: flex;
-    width: 100%;
-    flex-wrap: wrap;
+    margin: auto;
+    align-items: center;
+    justify-content: center;
+    width: calc(315px / 7);
     
 }
 
@@ -23,25 +27,27 @@
 }
 
 .day_container{
+    height: 315px;
+    width: 315px;
     display: flex;
     flex-wrap: wrap;
-    gap: 5px;
-    
-    
+    overflow: auto;
 }
+
+.day_container::-webkit-scrollbar {
+    display: none;
+  }
+
 
 .days{
     display: flex;
-    margin: auto;
-    align-items: center;
-    justify-content: center;
-    width: calc(370px / 7);
-    height: calc(370px / 7);
+    width: 45px;
+    height: 45px;
     background-color: rgb(255, 255, 255);
+    color: rgb(153, 153, 153);
 }
 
-.days.active{
-    color: rgb(255, 255, 255);
-    background-color: rgb(202, 43, 43);
-    font-weight: bold;
+.selected{
+    color: rgb(17, 17, 17);
 }
+
