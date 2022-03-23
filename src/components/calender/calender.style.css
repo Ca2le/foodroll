@@ -1,53 +1,75 @@
 
 .container{
-    
-    background-color: rgb(247, 247, 247);
+    background-color: rgb(255, 255, 255);
     width: 315px;
     display: block;
     margin: 0 auto;
     margin-top: 20vh;
-    
+    box-shadow: 2px 2px 2px 1px rgba(24, 24, 24, 0.06);
 }
 .monthyear_container{
+    background-color: rgb(240, 240, 240);
+    height: 45px;
     display: flex;
-    justify-content: center;
+    font-size: 1.5rem;
+    padding-left: 13px;
+    width: 315px;
+    align-items:flex-end;
 }
 
 .week_container{
+    background-color: rgb(240, 240, 240);
     display: flex;
-    margin: auto;
+    margin: 0 auto;
+    width: 315px;
+    height: 45px;
     align-items: center;
-    justify-content: center;
-    width: calc(315px / 7);
-    
 }
 
-.week_days{
-   
+.week_container p{
+    width: 45px;
+    text-align: center;
 }
 
 .day_container{
-    height: 315px;
+    gap: 1px;
+    height: calc(45px*6);
     width: 315px;
     display: flex;
     flex-wrap: wrap;
-    overflow: auto;
+    overflow-y: auto;
+    justify-content: center;
+   
 }
 
 .day_container::-webkit-scrollbar {
     display: none;
   }
 
-
 .days{
+    
+    align-items: center;
+    justify-content: center;
     display: flex;
-    width: 45px;
-    height: 45px;
-    background-color: rgb(255, 255, 255);
-    color: rgb(153, 153, 153);
+    width: 44px;
+    height: 44px;
+    background-color: rgb(240, 240, 240);
+    color: rgb(29, 29, 29);
+}
+
+.days:hover{
+    cursor: pointer;
+    border-color: azure;
+    border-style: solid;
+    border-width: 2px;
 }
 
 .selected{
-    color: rgb(17, 17, 17);
+    border-color: rgb(0, 111, 214);
+    border-style:double;
+    border-width: 2px;
 }
 
+.passed{
+    color: rgb(209, 209, 209);
+}

@@ -8,6 +8,7 @@ class Calender extends Component {
             month_arr: ['januari', 'februari', 'mars', 'april', 'maj', 'juni', 'juli', 'augusti', 'september', 'oktober', 'november', 'december'],
             day_arr: ['må', 'ti', 'on', 'to', 'fr', 'lö', 'sö'],
             allDays_arr: [],
+            selected_arr: [],
             displayedMonth: '',
             displayedYear: ''
            
@@ -18,6 +19,7 @@ class Calender extends Component {
          this.calculateCalenderDay = this.calculateCalenderDay.bind(this)
          this.setStateOfDisplayedMonth = this.setStateOfDisplayedMonth.bind(this)
          this.setStateOfDisplayedYear = this.setStateOfDisplayedYear.bind(this)
+         this.onClickHandler = this.onClickHandler.bind(this)
 
     }
 
@@ -178,11 +180,28 @@ class Calender extends Component {
         return nextDaysArr
     }
 
+    onClickHandler(element, id, event) {
+        const updatedArr = []
+        this.state.allDays_arr.map( (element, index) => {
+            if ( id === index) {
+                element.selected = !element.selected
+            }
+            return updatedArr.push(element)
+        
+        })
+
+        this.setState(function(preState) {
+            return {allDays_arr: preState.allDays_arr = updatedArr}
+        })
+        
+       
+    }
+
     render(){
         return(            
             <div className="container">
                 <div className="monthyear_container">
-                    <h1>{this.state.displayedMonth} {this.state.displayedYear}</h1>
+                    <p>{this.state.displayedMonth.toLocaleUpperCase()} {this.state.displayedYear}</p>
                 </div>
                 <div className="week_container">
                     {this.state.day_arr.map( day => {
@@ -191,20 +210,25 @@ class Calender extends Component {
                         )
                     })}
                 </div>
-                <div className="day_container" onScroll={ (event) => {
-                  
-                } }>
-                    {this.state.allDays_arr.map( element => {
+                <div className="day_container">
+                    {this.state.allDays_arr.map( (element, index) => {
+
                         return ( 
-                            <div className={`days ${element.currentMonth === true ? 'selected' : ''} ${element.passed === true ? 'passed' : ''}`}>
-                                <p>{element.date}</p>
-                            </div>
+                            
+                            <div onClick={ ( event ) => this.onClickHandler(element, index, event)} className={`days ${element.selected === true ? 'selected' : ''} ${element.passed === true ? 'passed' : ''}`}> 
+                                
+                            <p>{element.date}</p>
+
+                         </div>
                         )
                     })}
                 </div>
+         
             </div>
         )
     }
 }
+
+
 
 export default Calender
