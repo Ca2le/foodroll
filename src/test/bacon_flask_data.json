@@ -1,0 +1,91 @@
+[
+    {
+        "itemCat" : {
+                "items" : [
+                    {
+                        "cat" : "bacon",
+                        "id" : "001A",
+                        "name" : "bacon",
+                        "company" : "SCAN",
+                        "img" : "po",
+                        "gram" : "140",
+                        "recepie" : "",
+                        "price" : ["40", "95"],
+                        "country" : "swe",
+                        "eko" : "",
+                        "ingr" : ["fläsk"],
+                        "emul" : ["E301", "E250"],
+                        "warn" : []
+                    },
+                    {
+                        "cat" : "bacon",
+                        "id" : "999A",
+                        "name" : "Fejkon",
+                        "company" : "ICA",
+                        "img" : "recp",
+                        "gram" : "",
+                        "recepie" : "https://www.ica.se/artikel/vegetariskt-bacon/",
+                        "price" : "",
+                        "country" : "",
+                        "eko" : "",
+                        "ingr" : [],
+                        "emul" : [],
+                        "warn" : []
+                    },
+                    {
+                        "cat" : "bacon",
+                        "id" : "001B",
+                        "name" : "bacon",
+                        "company" : "TULPI",
+                        "img" : "po",
+                        "gram" : "125",
+                        "recepie" : "",
+                        "price" : ["19", "95"],
+                        "country" : "ger",
+                        "eko" : "",
+                        "ingr" : ["fläsk"],
+                        "emul" : ["E301", "E250"],
+                        "warn" : []
+                    },
+                    {
+                        "cat" : "bacon",
+                        "id" : "001C",
+                        "name" : "bacon eko",
+                        "company" : "SCAN",
+                        "img" : "po",
+                        "gram" : "120",
+                        "recepie" : "",
+                        "price" : ["25", "95"],
+                        "country" : "swe",
+                        "eko" : "Y",
+                        "ingr" : ["fläsk"],
+                        "emul" : ["E301", "E250"],
+                        "warn" : []
+                    }
+                ]
+        }
+            
+    },
+    {
+        "itemCat" : {
+                "items" : [
+                    {
+                        "cat" : "fläsk",
+                        "id" : "001A",
+                        "name" : "fläsk",
+                        "company" : "SCAN",
+                        "img" : "po",
+                        "gram" : "140",
+                        "recepie" : "",
+                        "price" : ["40", "95"],
+                        "country" : "swe",
+                        "eko" : "",
+                        "ingr" : ["fläsk"],
+                        "emul" : ["E301", "E250"],
+                        "warn" : []
+                    }
+                ]
+        }
+            
+    }
+]

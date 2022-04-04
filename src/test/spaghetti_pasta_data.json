@@ -1,0 +1,84 @@
+[
+    {
+        "itemCat" : {
+                "items" : [
+                    {
+                        "cat" : "spaghetti",
+                        "id" : "002A",
+                        "name" : "spaghetti",
+                        "company" : "BARILLA",
+                        "img" : "gl",
+                        "gram" : "1800",
+                        "recepie" : "",
+                        "price" : ["32", "95"],
+                        "country" : "ita",
+                        "eko" : "",
+                        "ingr" : ["durumvete"],
+                        "emul" : [],
+                        "warn" : ["ägg", "sojabönor"]
+                    },
+                    {
+                        "cat" : "spaghetti",
+                        "id" : "002B",
+                        "name" : "spaghetti",
+                        "company" : "RUSTICHELLA",
+                        "img" : "gl",
+                        "gram" : "500",
+                        "recepie" : "",
+                        "price" : ["62", "95"],
+                        "country" : "ita",
+                        "eko" : "",
+                        "ingr" : ["durumvete"],
+                        "emul" : [],
+                        "warn" : []
+                    },
+                    {
+                        "cat" : "spaghetti",
+                        "id" : "002C",
+                        "name" : "spaghetti",
+                        "company" : "FAVORIT",
+                        "img" : "gl",
+                        "gram" : "1000",
+                        "recepie" : "",
+                        "price" : ["25", "95"],
+                        "country" : "swe",
+                        "eko" : "Y",
+                        "ingr" : ["durumvete"],
+                        "emul" : [],
+                        "warn" : ["ägg"]
+                    },
+                    {
+                        "cat" : "spaghetti",
+                        "id" : "002D",
+                        "name" : "spaghetti",
+                        "company" : "KUNGSÖRNEN",
+                        "img" : "gl",
+                        "gram" : "500",
+                        "recepie" : "",
+                        "price" : ["18", "95"],
+                        "country" : "swe",
+                        "eko" : "",
+                        "ingr" : ["durumvete"],
+                        "emul" : [],
+                        "warn" : []
+                    },
+                    {
+                        "cat" : "spaghetti",
+                        "id" : "002E",
+                        "name" : "tagliatelle",
+                        "company" : "SEMPER",
+                        "img" : "corn",
+                        "gram" : "250",
+                        "recepie" : "",
+                        "price" : ["22", "50"],
+                        "country" : "nor",
+                        "eko" : "",
+                        "ingr" : ["majsstärkelse", "ägg", "risstärkelse"],
+                        "emul" : ["E471"],
+                        "warn" : []
+                    }
+                ]
+        }
+            
+    }
+]

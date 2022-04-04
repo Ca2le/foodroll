@@ -1,0 +1,12 @@
+[
+    {
+        "recipeName" : "Spaghetti Carbonara",
+        "logo" : "1.svg",
+        "shortDescription" : "Krämig pasta rätt för hela familjen, vem kan tacka nej?",
+        "timeToCook" : 30,
+        "httpLink" : "https://www.jamieoliver.com/recipes/pasta-recipes/gennaro-s-classic-spaghetti-carbonara/",
+        "header_icons" : ["bacon", "parmegiano", "spahgetti", "egg"],
+        "approvedBy" : ["standard", "laktos", "vegeterian", "gluten", "nuts", "legumes", "seafood"],
+        "recepie" : [{"name" : "guanciale", "portion" : 50}, {"name" : "parmegiano", "portion" : 25}, {"name" : "spaghetti", "portion" : 100}, {"name" : "egg", "portion" : 70},{"name" : "salt", "portion" : 5},{"name" : "garlic", "portion" : 20}, {"name" : "pepper", "portion" : 5}]
+    }
+]

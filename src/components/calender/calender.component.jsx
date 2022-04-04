@@ -1,6 +1,8 @@
 import React, {Component} from 'react'
 import './calender.style.css'
-
+import CheckBox from './checkbox/checkbox.component.jsx'
+import SearchBar from './searchbar/searchbar.component.jsx'
+import AdvancedFilter from './advancedfilter/advancedfilter.component.jsx'
 class Calender extends Component {
     constructor(props) {
         super(props)
@@ -10,7 +12,10 @@ class Calender extends Component {
             allDays_arr: [],
             selected_arr: [],
             displayedMonth: '',
-            displayedYear: ''
+            displayedYear: '',
+            data: props.data,
+            mainFilter: ['gluten', 'laktos', 'vegetarisk', 'vegan'],
+            filterSearch: ''
            
         }
          this.prevMonth = this.prevMonth.bind(this)
@@ -196,35 +201,52 @@ class Calender extends Component {
         
        
     }
+    handleChange = (event) => {
+        this.setState(function(preState){
+            return {filterSearch: preState.filterSearch = event.target.value}
+        })
+    }
+    handleSubmit = (event) => {
+        console.log(event)
+    }
 
     render(){
-        return(            
-            <div className="container">
-                <div className="monthyear_container">
-                    <p>{this.state.displayedMonth.toLocaleUpperCase()} {this.state.displayedYear}</p>
+        return(
+            <div className='side_bar_container'>
+                <div className='filter_container'>
+                    <h3>Filter</h3>
+                    <form>
+                        {this.state.mainFilter.map( (item, index) => <CheckBox key={index} item={item}/> )}
+                    </form>
+                </div> 
+                <div className='calender_container'>
+                    <div className="monthyear_container">
+                        <p>{this.state.displayedMonth.toLocaleUpperCase()} {this.state.displayedYear}</p>
+                    </div>
+                    <div className="week_container">
+                        {this.state.day_arr.map( day => {
+                            return (
+                                <p>{day}</p>
+                            )
+                        })}
+                    </div>
+                    <div className="day_container">
+                        {this.state.allDays_arr.map( (element, index) => {
+                            return ( 
+                                <div onClick={ ( event ) => this.onClickHandler(element, index, event)} className={`days ${element.selected === true ? 'selected' : ''} ${element.passed === true ? 'passed' : ''}`}>  
+                                <p>{element.date}</p>
+                            </div>
+                            )
+                        })}
+                    </div>
                 </div>
-                <div className="week_container">
-                    {this.state.day_arr.map( day => {
-                        return (
-                            <p>{day}</p>
-                        )
-                    })}
+                <div className='advanced_filter_container'>
+                    <h3>Avancerat Filter</h3>
+                    <SearchBar handleChange={this.handleChange}/>
+                    <AdvancedFilter/>
                 </div>
-                <div className="day_container">
-                    {this.state.allDays_arr.map( (element, index) => {
-
-                        return ( 
-                            
-                            <div onClick={ ( event ) => this.onClickHandler(element, index, event)} className={`days ${element.selected === true ? 'selected' : ''} ${element.passed === true ? 'passed' : ''}`}> 
-                                
-                            <p>{element.date}</p>
-
-                         </div>
-                        )
-                    })}
-                </div>
-         
             </div>
+
         )
     }
 }

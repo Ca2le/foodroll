@@ -1,0 +1,33 @@
+.category_main{
+    display: flex;
+    align-items: center;
+    height: 40px;
+   
+    
+}
+.category_sub{
+    display: flex;
+    margin-left: 5%;
+    align-items: center;
+    height: 40px;
+    
+}
+.category_item{
+    background-color: rgb(75, 19, 19);
+    max-width: 10rem;
+    height: 40px;
+    display: flex;
+    margin: auto;
+    align-items: center;
+    margin-left: 10%;
+    
+}   
+
+.category_item p{
+   font-size: 10px;
+   height: 10px;
+   background-color: rgb(56, 165, 42);
+   margin: auto 0;
+   padding: 0;
+   text-align: center;
+}  

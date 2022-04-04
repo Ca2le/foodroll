@@ -1,5 +1,5 @@
 
-.container{
+.calender_container{
     background-color: rgb(255, 255, 255);
     width: 315px;
     display: block;
@@ -72,4 +72,14 @@
 
 .passed{
     color: rgb(209, 209, 209);
+}
+
+.filter_container{
+    padding-left: 5%;
+}
+
+.side_bar_container{
+    width: 20%;
+    height: 100vh;
+    background-color: aquamarine;
 }

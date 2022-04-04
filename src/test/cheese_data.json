@@ -1,0 +1,23 @@
+[
+    {
+        "itemCat" : {
+                "items" : [
+                            {
+                                "cat" : "cheeze",
+                                "id" : "004A",
+                                "name" : "parmigiano reggiano",
+                                "company" : "ZETA",
+                                "img" : "che",
+                                "gram" : "150",
+                                "recepie" : "",
+                                "price" : ["62", "95"],
+                                "country" : "ita",
+                                "eko" : "",
+                                "ingr" : ["mjölk", "löpe"],
+                                "emul" : [],
+                                "warn" : []
+                            }
+        ]
+    }
+    }
+]

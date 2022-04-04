@@ -1,0 +1,40 @@
+[
+   { "category" : {
+        "category_name" : "grönsaker",
+        "category_items" : [
+            {"sub_cat_name" : "sallad", "sub_cat_items" : ["roman", "isberg", "babyspenat", "ruccola", "spenat", "mache", "gem", "krisp", "huvud"]},
+            {"sub_cat_name" : "tomat", "sub_cat_items" : ["tomat", "plommon", "cocktail", "kvist", "babyplommon", "biff", "honungs", "kumato", "cocktailkumato"]},
+            {"sub_cat_name" : "paprika", "sub_cat_items" : ["paprika", "spets", "mini", "sivri"]},
+            {"sub_cat_name" : "gurka", "sub_cat_items" : ["gurka", "mini"]},
+            {"sub_cat_name" : "rotfrukt", "sub_cat_items" : ["morot", "palsternacka", "rödbeta", "rotselleri", "jordärtskocka", "rättika", "polkabeta", "persiljarot", "majrova", "babymorot"]}
+        ]
+    }},
+    { "category" : {
+        "category_name" : "fläsk",
+        "category_items" : [
+            {"sub_cat_name" : "bacon", "sub_cat_items" : ["bacon"]},
+            {"sub_cat_name" : "sidfläsk", "sub_cat_items" : ["fläsk"]}
+        ]
+    }},
+    { "category" : {
+        "category_name" : "ost",
+        "category_items" : [
+            {"sub_cat_name" : "grana", "sub_cat_items" : ["parmesan", "padano", "gustoso", "reggiano"]},
+            {"sub_cat_name" : "mozzarella", "sub_cat_items" : ["mozzarella", "burrata", "buffel", "mini"]}
+        ]
+    }},
+    { "category" : {
+        "category_name" : "pasta",
+        "category_items" : [
+            {"sub_cat_name" : "spaghetti", "sub_cat_items" : ["durum", "bönor", "fullkorn"]},
+            {"sub_cat_name" : "tagliatelle", "sub_cat_items" : []}
+        ]
+    }},
+    { "category" : {
+        "category_name" : "ägg",
+        "category_items" : [
+            {"sub_cat_name" : "frigående", "sub_cat_items" : ["stora", "medel"]},
+            {"sub_cat_name" : "ej frigående", "sub_cat_items" : ["stora", "medel"]}
+        ]
+    }}
+]

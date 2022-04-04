@@ -1,0 +1,68 @@
+[
+    {
+        "itemCat" : {
+                "items" : [
+            {
+                "cat" : "egg",
+                "id" : "003A",
+                "name" : "ägg",
+                "company" : "KRONÄGG",
+                "img" : "egg",
+                "gram" : "650",
+                "recepie" : "",
+                "price" : ["39", "95"],
+                "country" : "swe",
+                "eko" : "",
+                "ingr" : ["ägg"],
+                "emul" : [],
+                "warn" : []
+            },
+            {
+                "cat" : "egg",
+                "id" : "003B",
+                "name" : "ägg",
+                "company" : "KRONÄGG",
+                "img" : "egg",
+                "gram" : "870",
+                "recepie" : "",
+                "price" : ["37", "95"],
+                "country" : "swe",
+                "eko" : "Y",
+                "ingr" : ["ägg"],
+                "emul" : [],
+                "warn" : []
+            },
+            {
+                "cat" : "egg",
+                "id" : "003C",
+                "name" : "ägg",
+                "company" : "STJÄRNÄGG",
+                "img" : "egg",
+                "gram" : "645",
+                "recepie" : "",
+                "price" : ["40", "95"],
+                "country" : "swe",
+                "eko" : "Y",
+                "ingr" : ["ägg"],
+                "emul" : [],
+                "warn" : []
+            },
+            {
+                "cat" : "egg",
+                "id" : "003D",
+                "name" : "ägg",
+                "company" : "KRONÄGG",
+                "img" : "egg",
+                "gram" : "305",
+                "recepie" : "",
+                "price" : ["15", "95"],
+                "country" : "swe",
+                "eko" : "",
+                "ingr" : ["ägg"],
+                "emul" : [],
+                "warn" : []
+            }
+        ]
+    }
+    }
+]
