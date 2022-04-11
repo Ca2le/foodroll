@@ -3,44 +3,81 @@ import CHEEZE_DATA from '../../../test/cheese_data.json'
 import EGG_DATA from '../../../test/egg_data.json'
 import PASTA_DATA from '../../../test/spaghetti_pasta_data.json'
 import CATEGORIES from '../../../test/categories.json'
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faAngleDown } from '@fortawesome/free-solid-svg-icons'
+import React, {Component} from 'react'
 import './advancedfilter.style.css'
 
+class AdvancedFilter extends Component{
+    constructor() {
+        super()
+        this.state = {
+            arrowArray : []
+        }
+        this.dropStyle = this.dropStyle.bind(this)
+        this.handleSubArrowOnClick = this.handleSubArrowOnClick.bind(this)
+    }
 
+    handleSubArrowOnClick (event, i, index) {
+       
+        const array = this.state.arrowArray
+        console.log(array)
+        array[i].subCatArr[index].isDropped = !array[i].subCatArr[index].isDropped
 
-const combineData = (...data) => {
-    const DATA_ARRAY = new Array
+         this.setState( (preState) => {
+             return { arrowArray : preState.arrowArray = array}
+         })
+       
+    }
     
-    /**
-        data.map( element => element.map( subcategory => {
-        const filterdItems = subcategory.itemCat.items.filter( item => item.recepie === "")
-        filterdItems.map( item => DATA_ARRAY.push(item))
-    }))
-    */
-    
-    
-    return DATA_ARRAY
-}
 
-function AdvancedFilter() {
+    componentDidMount() {
+        let arrowArray = []
+        CATEGORIES.map( (element, index) => {
+            arrowArray.push({
+                isDropped : false,
+                subCatArr : element.category.category_items.map( () => {
+                    return {isDropped : false}
+                })
+            })
+        })
+        this.setState( (preState) => {
+            return { arrowArray : preState.arrowArray = arrowArray}
+        })
+    }
+
+    dropStyle(i, index) {
+        console.log(this.state.arrowArray[i])
         return (
+            {
+                backgroundColor : 'black'
+            }
+        )
+        
+    }
+
+    render() {
+    return (
             <form>         
-                {CATEGORIES.map(element => {
+                {CATEGORIES.map( (e, i) => {
                     return(
-                        <div>
+                        <div key={i}>
                             <div className={'category_main'}>
-                                <input type={'checkbox'} value={element.category.category_name}/>
-                                <p>{element.category.category_name}</p>
+                                <input type={'checkbox'} value={e.category.category_name}/>
+                                <p>{e.category.category_name}</p>
+                                <FontAwesomeIcon icon={faAngleDown}/>
+                                
                             </div>
                             <div>
-                                {element.category.category_items.map( category => {
+                                {e.category.category_items.map( (category, index) => {
                                     return (
-                                        <div>
-                                            <div className={'category_sub'}>
+                                        <div key={index}>
+                                            <div style={this.dropStyle(i, index)} className={`category_sub`}>
                                                 <input type={'checkbox'} value={category.sub_cat_name}/>
                                                 <p>{category.sub_cat_name}</p>
+                                                <FontAwesomeIcon icon={faAngleDown} onClick={(event) => this.handleSubArrowOnClick(event, i, index)} />
                                             </div>
-                                            {category.sub_cat_items.map( item => {
+                                            {category.sub_cat_items.map( (item ) => {
                                                 return (
                                                     <div className={'category_item'}>
                                                         <input type={'checkbox'} value={item.sub_cat_name}/>
@@ -58,6 +95,7 @@ function AdvancedFilter() {
                 })}
             </form>
          );
+    }
 }
  
 export default AdvancedFilter;

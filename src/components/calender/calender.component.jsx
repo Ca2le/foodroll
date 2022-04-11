@@ -233,7 +233,7 @@ class Calender extends Component {
                     <div className="day_container">
                         {this.state.allDays_arr.map( (element, index) => {
                             return ( 
-                                <div onClick={ ( event ) => this.onClickHandler(element, index, event)} className={`days ${element.selected === true ? 'selected' : ''} ${element.passed === true ? 'passed' : ''}`}>  
+                                <div key={index} onClick={ ( event ) => this.onClickHandler(element, index, event)} className={`days ${element.selected === true ? 'selected' : ''} ${element.passed === true ? 'passed' : ''}`}>  
                                 <p>{element.date}</p>
                             </div>
                             )
